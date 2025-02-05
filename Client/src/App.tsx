@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import {
   Send, Hash, Search, Menu, MessageSquare, Sparkles,
-  Radio, Shield, Crown, X, 
-  MoreVertical,
+  Radio, Shield, Crown, X,MoreVertical,
   UserPlus, Share2, Video, MessageCircle
 } from 'lucide-react';
 
@@ -13,8 +12,7 @@ function App() {
   const [roomId, setRoomId] = useState("");
   const [isJoined, setIsJoined] = useState(false);
   const [roomInput, setRoomInput] = useState("");
-  const [showSidebar, setShowSidebar] = useState(true);
-  const [isTyping, setIsTyping] = useState(false);
+  const [showSidebar] = useState(true);
   const wsRef = useRef(null);
   const messagesEndRef = useRef(null);
   const localStorageKey = `chatMessages_${roomId}`;
@@ -40,7 +38,7 @@ function App() {
 
   const connectToRoom = (rid) => {
     if (!rid.trim()) return;
-    
+
     setMessages([]);
     const wss = new WebSocket(`wss://${import.meta.env.VITE_BACKEND_URL}`);
 
@@ -93,7 +91,7 @@ function App() {
       timestamp: new Date().toISOString(),
       status: 'sent'
     };
-    
+
     setMessages(m => [...m, newMessage]);
     wsRef.current?.send(JSON.stringify({
       type: "chat",
@@ -103,7 +101,6 @@ function App() {
       }
     }));
     setInputValue("");
-    setIsTyping(false);
   };
 
   const handleKeyPress = (e) => {
@@ -126,8 +123,8 @@ function App() {
     return (
       <div className="min-h-screen bg-[#0A0A0A] overflow-hidden relative flex items-center justify-center p-4">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-purple-600/30 to-blue-600/30 rounded-full mix-blend-normal filter blur-[128px] animate-pulse"/>
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-emerald-600/30 to-cyan-600/30 rounded-full mix-blend-normal filter blur-[128px] animate-pulse delay-1000"/>
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-purple-600/30 to-blue-600/30 rounded-full mix-blend-normal filter blur-[128px] animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-emerald-600/30 to-cyan-600/30 rounded-full mix-blend-normal filter blur-[128px] animate-pulse delay-1000" />
         </div>
 
         <div className="relative w-full max-w-md">
@@ -136,23 +133,23 @@ function App() {
               <div className="relative">
                 <div className="w-24 h-24 rounded-3xl bg-gradient-to-tr from-purple-600 to-blue-600 p-[2px]">
                   <div className="w-full h-full rounded-3xl bg-[#111111] flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 backdrop-blur-xl"/>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 backdrop-blur-xl" />
                     <MessageSquare className="w-12 h-12 text-white relative z-10" />
                   </div>
                 </div>
-                <Sparkles className="w-6 h-6 text-blue-400 absolute -top-2 -right-2 animate-bounce"/>
+                <Sparkles className="w-6 h-6 text-blue-400 absolute -top-2 -right-2 animate-bounce" />
               </div>
 
               <div className="text-center space-y-3">
                 <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400">
-                NovaRoom 
+                  NovaRoom
                 </h1>
                 <p className="text-gray-400">Enterprise-Grade Secure Communications</p>
               </div>
 
               <form onSubmit={handleJoinRoom} className="w-full space-y-5">
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-500"/>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-500" />
                   <input
                     type="text"
                     value={roomInput}
@@ -161,26 +158,26 @@ function App() {
                     className="relative w-full px-5 py-4 bg-[#111111] rounded-xl border border-white/10 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all outline-none text-gray-100 placeholder-gray-500"
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   className="w-full relative group"
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-500"/>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-500" />
                   <div className="relative w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl text-white font-medium text-lg shadow-lg shadow-purple-600/20 flex items-center justify-center space-x-2 hover:shadow-xl hover:shadow-purple-600/30 transition duration-300">
                     <span>Enter Workspace</span>
-                    <Radio className="w-5 h-5 animate-pulse"/>
+                    <Radio className="w-5 h-5 animate-pulse" />
                   </div>
                 </button>
               </form>
 
               <div className="flex items-center gap-8">
                 <div className="flex items-center gap-2 text-gray-400">
-                  <Shield className="w-4 h-4"/> 
+                  <Shield className="w-4 h-4" />
                   <span className="text-sm">Enterprise Security</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-400">
-                  <Crown className="w-4 h-4"/>
+                  <Crown className="w-4 h-4" />
                   <span className="text-sm">Premium Features</span>
                 </div>
               </div>
@@ -204,7 +201,7 @@ function App() {
             <span className="text-xl font-bold text-white">NovaRoom</span>
           </div>
           <button className="p-2 hover:bg-white/5 rounded-lg transition-colors">
-            <MoreVertical className="w-5 h-5 text-gray-400"/>
+            <MoreVertical className="w-5 h-5 text-gray-400" />
           </button>
         </div>
 
@@ -228,22 +225,22 @@ function App() {
               <span>Active Room</span>
               <div className="flex items-center space-x-2">
                 <button className="p-1.5 hover:bg-white/5 rounded-lg transition-colors">
-                  <UserPlus className="w-4 h-4"/>
+                  <UserPlus className="w-4 h-4" />
                 </button>
                 <button className="p-1.5 hover:bg-white/5 rounded-lg transition-colors">
-                  <Share2 className="w-4 h-4"/>
+                  <Share2 className="w-4 h-4" />
                 </button>
               </div>
             </div>
             <div className="p-3 rounded-xl bg-gradient-to-r from-purple-600/10 to-blue-600/10 border border-white/5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <Hash className="w-4 h-4 text-blue-400"/>
+                  <Hash className="w-4 h-4 text-blue-400" />
                   <span className="text-white font-medium">{roomId}</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Radio className="w-3 h-3 text-emerald-400 animate-pulse"/>
-                  <Sparkles className="w-4 h-4 text-blue-400"/>
+                  <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
+                  <Sparkles className="w-4 h-4 text-blue-400" />
                 </div>
               </div>
             </div>
@@ -258,8 +255,8 @@ function App() {
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex items-center space-x-3 p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group">
                   <div className="relative">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-blue-600"/>
-                    <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[#111111]"/>
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-blue-600" />
+                    <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[#111111]" />
                   </div>
                   <div className="flex-1">
                     <div className="text-sm text-white font-medium">User {i}</div>
@@ -267,10 +264,10 @@ function App() {
                   </div>
                   <div className="flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
                     <button className="p-1.5 hover:bg-white/10 rounded-lg transition-colors">
-                      <MessageCircle className="w-4 h-4 text-gray-400"/>
+                      <MessageCircle className="w-4 h-4 text-gray-400" />
                     </button>
                     <button className="p-1.5 hover:bg-white/10 rounded-lg transition-colors">
-                      <Video className="w-4 h-4 text-gray-400"/>
+                      <Video className="w-4 h-4 text-gray-400" />
                     </button>
                   </div>
                 </div>
@@ -284,7 +281,7 @@ function App() {
             onClick={handleDisconnect}
             className="w-full p-2 rounded-lg text-red-400 hover:bg-red-500/10 transition-colors text-sm font-medium flex items-center justify-center space-x-2"
           >
-            <X className="w-4 h-4"/>
+            <X className="w-4 h-4" />
             <span>Leave Room</span>
           </button>
         </div>
@@ -293,10 +290,10 @@ function App() {
       <div className="flex-1 flex flex-col">
         <div className="h-16 bg-gray-900/60 backdrop-blur-xl border-b border-gray-800 flex items-center px-4">
           <div className="lg:hidden mr-4">
-            <Menu className="w-6 h-6 text-gray-400"/>
+            <Menu className="w-6 h-6 text-gray-400" />
           </div>
           <div className="flex items-center space-x-3">
-            <Hash className="w-5 h-5 text-blue-400"/>
+            <Hash className="w-5 h-5 text-blue-400" />
             <span className="text-white font-medium">{roomId}</span>
           </div>
         </div>
@@ -309,11 +306,10 @@ function App() {
             >
               <div className={`max-w-[75%] ${message.isMe ? "items-end" : "items-start"}`}>
                 <div
-                  className={`p-3 rounded-2xl ${
-                    message.isMe
+                  className={`p-3 rounded-2xl ${message.isMe
                       ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white"
                       : "bg-gray-800/70 text-gray-100"
-                  } ${message.isMe ? "rounded-br-none" : "rounded-bl-none"}`}
+                    } ${message.isMe ? "rounded-br-none" : "rounded-bl-none"}`}
                 >
                   <p className="text-sm">{message.text}</p>
                 </div>
