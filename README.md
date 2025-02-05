@@ -15,7 +15,7 @@ NovaRoom is a modern, real-time chat application built with a focus on secure an
 
 ## Live Demo
 
-Check out the live demo of NovaRoom: [Live Demo](https://your-live-host-link.com)
+Check out the live demo of NovaRoom: [Live Demo](https://nova-room.vercel.app)
 
 ---
 
@@ -38,10 +38,16 @@ Check out the live demo of NovaRoom: [Live Demo](https://your-live-host-link.com
 
 ### Running the Backend
 
+Clone the Repository
+```bash
+git clone https://github.com/Debjyoti2004/NovaRoom
+cd NovaRoom
+```
+
 Navigate to the backend directory:
 
 ```bash
-cd backend
+cd Server
 ```
 
 Install dependencies:
@@ -61,7 +67,7 @@ npm run dev
 Navigate to the frontend directory:
 
 ```bash
-cd frontend
+cd Client
 ```
 
 Install dependencies:
@@ -113,25 +119,16 @@ Contributions are welcome! If you'd like to contribute, please follow these step
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the LICENSE.md file for details.
 
 ## Contact
 
 For any questions or feedback, feel free to reach out:
 
-- **Email**: [your-email@example.com](mailto:your-email@example.com)  
-- **GitHub**: [Your GitHub Profile](https://github.com/your-profile)
+- **Email**: [debjyotishit27@gmail.com](debjyotishit27@gmail.com)  
+- **GitHub**: [https://github.com/Debjyoti2004](https://github.com/Debjyoti2004)
 
 ## Additional Notes
-
-### Screenshots
-Add your screenshots in the `screenshots` folder and update the paths in the `<img>` tags.
-
-### Live Demo
-Replace `https://your-live-host-link.com` with your actual live host link.
-
-### Environment Variables
-Ensure you set up `.env.local` with the required variables.
 
 ---
 
