@@ -128,8 +128,6 @@ For any questions or feedback, feel free to reach out:
 - **Email**: [debjyotishit27@gmail.com](debjyotishit27@gmail.com)  
 - **GitHub**: [https://github.com/Debjyoti2004](https://github.com/Debjyoti2004)
 
-## Additional Notes
-
 ---
 
 Enjoy chatting on NovaRoom! 🚀
