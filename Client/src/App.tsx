@@ -42,7 +42,7 @@ function App() {
     if (!rid.trim()) return;
     
     setMessages([]);
-    const wss = new WebSocket("ws://localhost:8080");
+    const wss = new WebSocket(`wss://${import.meta.env.VITE_BACKEND_URL}`);
 
     wss.onopen = () => {
       wss.send(JSON.stringify({
